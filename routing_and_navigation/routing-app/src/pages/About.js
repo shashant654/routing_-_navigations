@@ -1,9 +1,15 @@
 import React from 'react'
+import {useLocation } from "react-router"
 
 function About() {
-  return (
-    <div>About</div>
-  )
+ 
+  const location = useLocation()
+  const data = location.state;
+  
+  console.log(data);
+  return  <div>About</div>
+   
+  
 }
 
 export default About
