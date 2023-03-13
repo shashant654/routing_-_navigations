@@ -7,7 +7,7 @@ function SingleProduct({ product }) {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cartReducer.cart);
-  const curItem = cart.find((item) => item.id == product.id);
+  const curItem = cart.find((item) => item.id === product.id);
   const curQuantity = curItem ? curItem.quantity : 0;
 
   return (
@@ -26,7 +26,7 @@ function SingleProduct({ product }) {
         >
           -
         </button>
-        <h4>0</h4>
+        <h4>{curQuantity}</h4>
         <button
           className="button"
           onClick={() => dispatch(addToCart(product.id))}
