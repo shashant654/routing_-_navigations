@@ -14,6 +14,8 @@ function ProductList() {
 
   const status = useSelector((state) => state.productReducer.status);
 
+  const error = useSelector((state) => state.productReducer.error);
+
   useEffect(() => {
     dispatch(fetchData());
   }, []);
@@ -26,6 +28,15 @@ function ProductList() {
         style={{ position: "absolute", top: "40%", left: "50%" }}
         indicator={antIcon}
       />
+    );
+  }
+
+  if (status === "failed") {
+    return (
+      <>
+        <h3>Uh oh! Something went wrong</h3>
+        <p>{error}</p>
+      </>
     );
   }
 
